@@ -4,23 +4,23 @@ import com.ming.finance.common.util.JSONResult;
 import com.ming.finance.service.LoginService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.*;
 
 /**
  * Created by Macx on 2017/4/6.
  */
 @Controller
+@RequestMapping(value = "/login")
 public class LoginController {
 
     @Autowired
     private LoginService loginService;
 
-    @PostMapping(value = "register")
+    @RequestMapping(value = "/register", method = RequestMethod.POST)
     @ResponseBody
-    public JSONResult register(@RequestParam("username") String username,
-                               @RequestParam("password") String password){
+    public JSONResult register(@PathVariable("username") String username,
+                               @PathVariable("password") String password){
+
         JSONResult jsonResult = new JSONResult();
 
             if (!"".equals(username) && !"".equals(password)){
@@ -41,5 +41,11 @@ public class LoginController {
                     return jsonResult;
                 }
             }
+    }
+
+    @RequestMapping(value = "/showRegister", method = RequestMethod.GET)
+    public String gotoRegister(){
+        System.out.println("LoginController.gotoRegister");
+     return "register";
     }
 }

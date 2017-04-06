@@ -32,10 +32,10 @@
             <artifactId>commons-net</artifactId>
         </dependency>
         <!-- Jackson Json处理工具包 -->
-        <dependency>
-            <groupId>com.fasterxml.jackson.core</groupId>
-            <artifactId>jackson-databind</artifactId>
-        </dependency>
+        <!--<dependency>-->
+            <!--<groupId>com.fasterxml.jackson.core</groupId>-->
+            <!--<artifactId>jackson-databind</artifactId>-->
+        <!--</dependency>-->
         <!-- httpclient -->
         <dependency>
             <groupId>org.apache.httpcomponents</groupId>
