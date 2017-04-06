@@ -6,11 +6,25 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
-        <module name="finance-parent" />
+        <module name="finance-common" />
+        <module name="finance-manage-dao" />
+        <module name="finance-manage-interface" />
+        <module name="finance-manage-pojo" />
+        <module name="finance-manage-service" />
+        <module name="finance-manage-web" />
+        <module name="finance-website-web" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
-      <module name="finance-parent" target="1.5" />
+      <module name="finance-common" target="1.7" />
+      <module name="finance-manage" target="1.7" />
+      <module name="finance-manage-dao" target="1.7" />
+      <module name="finance-manage-interface" target="1.7" />
+      <module name="finance-manage-pojo" target="1.7" />
+      <module name="finance-manage-service" target="1.7" />
+      <module name="finance-manage-web" target="1.7" />
+      <module name="finance-parent" target="1.7" />
+      <module name="finance-website-web" target="1.7" />
     </bytecodeTargetLevel>
   </component>
 </project>

@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="Encoding">
+    <file url="file://$PROJECT_DIR$/finance-common" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/finance-manage" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/finance-manage-web" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/finance-manage/finance-manage-dao" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/finance-manage/finance-manage-interface" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/finance-manage/finance-manage-pojo" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/finance-manage/finance-manage-service" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/finance-parent" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/finance-website-web" charset="UTF-8" />
+  </component>
+</project>
