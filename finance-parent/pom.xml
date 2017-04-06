@@ -9,6 +9,10 @@
     <version>1.0.0</version>
     <modules>
         <module>../finance-common</module>
+        <module>../finance-manage</module>
+        <module>../finance-manage/finance-manage-dao</module>
+        <module>../finance-manage-web</module>
+        <module>../finance-website-web</module>
     </modules>
     <packaging>pom</packaging>
 
