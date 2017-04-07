@@ -2,6 +2,7 @@ package com.ming.finance.controller;
 
 import com.ming.finance.common.util.JSONResult;
 import com.ming.finance.service.LoginService;
+import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
@@ -10,42 +11,45 @@ import org.springframework.web.bind.annotation.*;
  * Created by Macx on 2017/4/6.
  */
 @Controller
-@RequestMapping(value = "/login")
 public class LoginController {
 
     @Autowired
     private LoginService loginService;
 
-    @RequestMapping(value = "/register", method = RequestMethod.POST)
+    /**
+     * 注册用户
+     * @param username
+     * @param password
+     * @return
+     */
+    @RequestMapping(value = "/user/register", method = RequestMethod.POST)
     @ResponseBody
-    public JSONResult register(@PathVariable("username") String username,
-                               @PathVariable("password") String password){
+    public JSONResult register(@RequestParam("username") String username,
+                               @RequestParam("password") String password){
 
-        JSONResult jsonResult = new JSONResult();
-
-            if (!"".equals(username) && !"".equals(password)){
-
-                    jsonResult.setMsg("用户名或者密码不能为空");
-                    jsonResult.setSuccess(false);
-                    return jsonResult;
-            }else {
-                try {
-                    loginService.register(username,password);
-                    jsonResult.setMsg("注册成功");
-                    jsonResult.setSuccess(true);
-                    return jsonResult;
-                }catch (RuntimeException e){
-
-                    jsonResult.setMsg("用户名已存在");
-                    jsonResult.setSuccess(false);
-                    return jsonResult;
-                }
-            }
+        JSONResult jsonResult = loginService.register(username, password);
+        return jsonResult;
     }
 
-    @RequestMapping(value = "/showRegister", method = RequestMethod.GET)
+    /**
+     * 注册页面
+     * @return
+     */
+    @RequestMapping(value = "/user/showRegister", method = RequestMethod.GET)
     public String gotoRegister(){
-        System.out.println("LoginController.gotoRegister");
      return "register";
+    }
+
+    /**
+     * 检查用户名
+     * @param username
+     * @return
+     */
+    @RequestMapping(value = "/user/checkUsername", method = RequestMethod.POST)
+    @ResponseBody
+    public JSONResult checkUserName(@RequestParam("username") String username){
+        System.out.println("LoginController.checkUserName");
+        JSONResult jsonResult = loginService.checkUsername(username);
+        return jsonResult;
     }
 }

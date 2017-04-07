@@ -12,8 +12,8 @@
 	<!-- 加载属性文件 -->
 	<!--<context:property-placeholder location="classpath:resource/resource.properties"/>-->
 	<!-- 配置注解驱动 -->
-
 	<mvc:annotation-driven />
+
 	<!-- 视图解析器 -->
 	<bean id="viewResolver"
 		  class="org.springframework.web.servlet.view.InternalResourceViewResolver"
@@ -37,20 +37,12 @@
 		<!-- 设定文件上传的最大值5MB，5*1024*1024 -->
 		<property name="maxUploadSize" value="5242880"></property>
 	</bean>
+
 	<!-- dubbo 3步 -->
 	<!-- 服务消费方 名称 -->
 	<dubbo:application name="finance-website-web" />
-	<!-- 注册中心 注册地址 连接zookeeper <dubbo:registry address="192.168.200.128:2181"
-		protocol="zookeeper"/> -->
-	<dubbo:registry address="N/A" />
-	<!-- 调用暴露接口
-		<dubbo:reference interface="com.itheima.core.service.buyer.SessionService"
-		id="sessionService" url="127.0.0.1:20880" />
-	 -->
-	<dubbo:reference interface="com.ming.finance.service.LoginService"
-					 id="loginService" url="127.0.0.1:20880" />
-
-	<!-- 使用debug跑 所以连接超时 我这里使用10分钟 启动时不校验服务提供方 -->
-	<dubbo:consumer timeout="600000" check="false" />
+	<!--注册中心 注册地址 连接zookeeper -->
+	<dubbo:registry address="172.16.60.128:2181" protocol="zookeeper"/>
+	<dubbo:reference interface="com.ming.finance.service.LoginService" id="loginService" />
 
 </beans>      

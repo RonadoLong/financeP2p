@@ -17,6 +17,12 @@
             <artifactId>finance-manage-pojo</artifactId>
             <version>1.0.0</version>
         </dependency>
+
+        <dependency>
+            <groupId>com.ming.finance</groupId>
+            <artifactId>finance-common</artifactId>
+            <version>1.0.0</version>
+        </dependency>
     </dependencies>
 
 </project>
