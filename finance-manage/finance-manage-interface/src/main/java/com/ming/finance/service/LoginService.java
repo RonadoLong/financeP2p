@@ -20,4 +20,6 @@ public interface LoginService {
      * @param username
      */
     JSONResult checkUsername(String username);
+
+    JSONResult login(String username, String password);
 }

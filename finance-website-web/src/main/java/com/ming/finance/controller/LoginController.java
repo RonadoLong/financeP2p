@@ -26,8 +26,8 @@ public class LoginController {
     public JSONResult register(@RequestParam("username") String username,
                                @RequestParam("password") String password){
 
-        JSONResult jsonResult = loginService.register(username, password);
-        return jsonResult;
+        JSONResult result = loginService.register(username, password);
+        return result;
     }
 
     /**
@@ -46,12 +46,28 @@ public class LoginController {
      */
     @RequestMapping(value = "/user/checkUsername", method = RequestMethod.POST)
     @ResponseBody
-    public JSONResult checkUserName(@RequestParam("username") String username){
-        if (loginService ==null ){
-            JSONResult.build(500,"server error");
-        }
+    public Boolean checkUserName(@RequestParam("username") String username){
+
         JSONResult result = loginService.checkUsername(username);
-        System.out.println("LoginController.checkUserName" + result);
+
+        if (result.getStatus() == 200){
+            return true;
+        }else {
+            return false;
+        }
+    }
+
+    /**
+     * 登录
+     * @param username
+     * @param password
+     * @return
+     */
+    @RequestMapping(value = "/user/login", method = RequestMethod.POST)
+    @ResponseBody
+    public JSONResult login(@RequestParam("username") String username,
+                            @RequestParam("password") String password){
+        JSONResult result = loginService.login(username, password);
         return result;
     }
 }
