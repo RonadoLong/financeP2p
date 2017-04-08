@@ -67,7 +67,7 @@ public class LoginServiceImpl implements LoginService {
         criteria.andSysUserLoginNameEqualTo(username);
         List<FinanceUser> users = userDao.selectByExample(query);
 
-        if (users != null || users.size() == 0) {
+        if (users != null && users.size() != 0) {
             return JSONResult.build(400, "用户名存在");
         } else {
             return JSONResult.build(200, "用户名可用");

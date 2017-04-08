@@ -33,4 +33,5 @@
 	<dubbo:protocol name="dubbo" port="20880" />
 	<!-- 声明需要暴露的服务接口 -->
 	<dubbo:service interface="com.ming.finance.service.LoginService" ref="loginServiceImpl" timeout="6000000"/>
+	<bean id="loginServiceImpl" class="com.ming.finance.service.impl.LoginServiceImpl"/>
 </beans>

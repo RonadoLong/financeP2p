@@ -2,7 +2,6 @@ package com.ming.finance.controller;
 
 import com.ming.finance.common.util.JSONResult;
 import com.ming.finance.service.LoginService;
-import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
@@ -48,8 +47,11 @@ public class LoginController {
     @RequestMapping(value = "/user/checkUsername", method = RequestMethod.POST)
     @ResponseBody
     public JSONResult checkUserName(@RequestParam("username") String username){
-        System.out.println("LoginController.checkUserName");
-        JSONResult jsonResult = loginService.checkUsername(username);
-        return jsonResult;
+        if (loginService ==null ){
+            JSONResult.build(500,"server error");
+        }
+        JSONResult result = loginService.checkUsername(username);
+        System.out.println("LoginController.checkUserName" + result);
+        return result;
     }
 }

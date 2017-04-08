@@ -6,7 +6,7 @@
 
 	<display-name>finance-manager-service</display-name>
 
-	<!-- init spring contait-->
+	<!-- init spring -->
 	<context-param>
 		<param-name>contextConfigLocation</param-name>
 		<param-value>classpath:spring/applicationContext-*.xml</param-value>
