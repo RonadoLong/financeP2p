@@ -3,13 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="a61a15b2-1dc7-4bb6-adfd-25e008ff6be4" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/finance-manage/finance-manage-service/src/main/java/com/ming/finance/service/impl/LoginServiceImpl.java" afterPath="$PROJECT_DIR$/finance-manage/finance-manage-service/src/main/java/com/ming/finance/service/impl/LoginServiceImpl.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/finance-manage/finance-manage-service/src/main/resources/properties/db.properties" afterPath="$PROJECT_DIR$/finance-manage/finance-manage-service/src/main/resources/properties/db.properties" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/finance-manage/finance-manage-service/src/main/resources/properties/log4j.properties" afterPath="$PROJECT_DIR$/finance-manage/finance-manage-service/src/main/resources/properties/log4j.properties" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/finance-manage/finance-manage-service/src/main/resources/spring/applicationContext-service.xml" afterPath="$PROJECT_DIR$/finance-manage/finance-manage-service/src/main/resources/spring/applicationContext-service.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/finance-manage/finance-manage-service/src/main/webapp/WEB-INF/web.xml" afterPath="$PROJECT_DIR$/finance-manage/finance-manage-service/src/main/webapp/WEB-INF/web.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/finance-website-web/src/main/java/com/ming/finance/controller/LoginController.java" afterPath="$PROJECT_DIR$/finance-website-web/src/main/java/com/ming/finance/controller/LoginController.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/finance-website-web/src/main/webapp/static/register.html" afterPath="$PROJECT_DIR$/finance-website-web/src/main/webapp/static/register.html" />
     </list>
     <ignored path="$PROJECT_DIR$/finance-parent/target/" />
     <ignored path="$PROJECT_DIR$/finance-common/target/" />
@@ -1789,7 +1783,7 @@
       <workItem from="1491538427153" duration="5207000" />
       <workItem from="1491546605101" duration="3758000" />
       <workItem from="1491618130951" duration="7028000" />
-      <workItem from="1491633543589" duration="2281000" />
+      <workItem from="1491633543589" duration="2297000" />
     </task>
     <task id="LOCAL-00001" summary="&quot;create parent common&quot;">
       <created>1491460905761</created>
@@ -1812,11 +1806,18 @@
       <option name="project" value="LOCAL" />
       <updated>1491632257609</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="&quot;login bug&quot;">
+      <created>1491636450597</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1491636450597</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="32419000" />
+    <option name="totallyTimeSpent" value="32435000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -1874,7 +1875,8 @@
     <MESSAGE value="&quot;create parent common&quot;" />
     <MESSAGE value="&quot;update readme&quot;" />
     <MESSAGE value="&quot;dubbo bug&quot;" />
-    <option name="LAST_COMMIT_MESSAGE" value="&quot;dubbo bug&quot;" />
+    <MESSAGE value="&quot;login bug&quot;" />
+    <option name="LAST_COMMIT_MESSAGE" value="&quot;login bug&quot;" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -2086,6 +2088,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="130">
           <caret line="5" column="42" lean-forward="false" selection-start-line="5" selection-start-column="42" selection-end-line="5" selection-end-column="42" />
+          <folding />
         </state>
       </provider>
     </entry>
