@@ -5,6 +5,7 @@ CREATE USER 'ssm'@'%' IDENTIFIED BY 'ssm';
 GRANT ALL PRIVILEGES ON finance.* TO 'ssm'@'%';
 FLUSH PRIVILEGES;
 
+CREATE DATABASE `finance` CHARACTER SET utf8;
 USE finance;
 
 # 创建表

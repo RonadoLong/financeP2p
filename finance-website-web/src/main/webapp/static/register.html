@@ -63,7 +63,7 @@
 				$("#registerForm").ajaxSubmit({
 					dataType:"json",
 					success:function(data){
-						if(data.success){
+						if(data.status == 200){
 							$.messager.confirm("提示","注册成功!",function(){
 								window.location.href="/static/login.html";
 							});
@@ -91,7 +91,7 @@
 		<div class="container" style="position: relative;">
 			<ul class="nav navbar-nav navbar-right">
 				<li><a href="/">首页</a></li>
-				<li><a href="/static/login.htmlin.html">登录</a></li>
+				<li><a href="/static/login.html">登录</a></li>
 				<li><a href="#">帮助</a></li>
 			</ul>
 		</div>
@@ -109,7 +109,7 @@
 	
 	<!-- 网页内容 -->
 	<div class="container">  
-		<form id="registerForm" class="form-horizontal el-register-form"  action="/register.do" method="post" >
+		<form id="registerForm" class="form-horizontal el-register-form"  action="/user/register" method="post" >
 			<p class="h4" style="margin: 10px 10px 20px;color:#999;">请填写注册信息，点击“提交注册”即可完成注册！</p>
 			<div class="form-group">
 				<label class="control-label col-sm-2">用户名</label>
@@ -138,7 +138,7 @@
 						同意协议并注册
 					</button>
 					&emsp;&emsp;
-					<a href="/static/login.htmlin.html" class="text-primary">已有账号，马上登录</a>
+					<a href="/static/login.html" class="text-primary">已有账号，马上登录</a>
 					
 					<p style="padding-left: 50px;margin-top: 15px;">
 						<a href="#">《使用协议说明书》</a>
