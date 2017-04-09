@@ -5,14 +5,14 @@ import com.ming.finance.mapper.FinanceUserDao;
 import com.ming.finance.pojo.FinanceUser;
 import com.ming.finance.pojo.FinanceUserQuery;
 import com.ming.finance.service.LoginService;
-import org.apache.http.HttpRequest;
-import org.springframework.util.DigestUtils;
+import org.apache.commons.codec.digest.DigestUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.Date;
 import java.util.List;
 import org.apache.commons.lang3.StringUtils;
+
 
 /**
  * Created by Macx on 2017/4/6.
@@ -44,12 +44,12 @@ public class LoginServiceImpl implements LoginService {
 
             FinanceUser user = new FinanceUser();
             user.setSysUserLoginName(username);
-            user.setSysUserLoginPassword(DigestUtils.md5DigestAsHex(password.getBytes()));
+            user.setSysUserLoginPassword(DigestUtils.md5Hex(password));
             user.setSysUserIsDelete("N");
             user.setSysUserStatus("0");
             user.setSysUserRegisterDatetime(new Date());
             user.setSysUserSex("0");
-            int insert = userDao.insertSelective(user);
+            int insert = userDao.insert(user);
 
             if (insert <= 0){
                 return JSONResult.build(500, "注册失败", user);
@@ -102,7 +102,9 @@ public class LoginServiceImpl implements LoginService {
         //判断密码是否一样
         FinanceUser user = userList.get(0);
 
-        if (user.getSysUserLoginPassword() != DigestUtils.md5DigestAsHex(password.getBytes())){
+        String md5Password = DigestUtils.md5Hex(password);
+
+        if (!user.getSysUserLoginPassword().equals(md5Password)){
             return JSONResult.build(400,"用户名或密码不正确");
         }
 
