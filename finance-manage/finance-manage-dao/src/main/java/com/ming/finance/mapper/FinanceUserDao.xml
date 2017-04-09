@@ -2,7 +2,7 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="com.ming.finance.mapper.FinanceUserDao" >
   <resultMap id="BaseResultMap" type="com.ming.finance.pojo.FinanceUser" >
-    <result column="sys_user_id" property="sysUserId" jdbcType="BIGINT" />
+    <id column="sys_user_id" property="sysUserId" jdbcType="BIGINT" />
     <result column="sys_user_login_name" property="sysUserLoginName" jdbcType="VARCHAR" />
     <result column="sys_user_login_password" property="sysUserLoginPassword" jdbcType="VARCHAR" />
     <result column="sys_user_status" property="sysUserStatus" jdbcType="VARCHAR" />
@@ -102,6 +102,16 @@
       limit #{startRow} , #{pageSize}
     </if>
   </select>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Long" >
+    select 
+    sys_user_id,sys_user_login_name,sys_user_login_password,sys_user_status,sys_user_is_delete,sys_user_register_datetime,sys_user_sex,sys_user_pay_passwrod,sys_user_icon,sys_user_real_name,sys_user_email,sys_user_mobile,sys_user_weibo_id,sys_user_qq_id
+    from finance_user
+    where sys_user_id = #{sysUserId,jdbcType=BIGINT}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long" >
+    delete from finance_user
+    where sys_user_id = #{sysUserId,jdbcType=BIGINT}
+  </delete>
   <delete id="deleteByExample" parameterType="com.ming.finance.pojo.FinanceUserQuery" >
     delete from finance_user
     <if test="_parameter != null" >
@@ -109,6 +119,9 @@
     </if>
   </delete>
   <insert id="insert" parameterType="com.ming.finance.pojo.FinanceUser" >
+    <selectKey keyProperty="id" order="AFTER" resultType="java.lang.Long">
+      select LAST_INSERT_ID()
+    </selectKey>
     insert into finance_user (sys_user_id, sys_user_login_name, sys_user_login_password, 
       sys_user_status, sys_user_is_delete, sys_user_register_datetime, 
       sys_user_sex, sys_user_pay_passwrod, sys_user_icon, 
@@ -119,6 +132,14 @@
       #{sysUserSex,jdbcType=VARCHAR}, #{sysUserPayPasswrod,jdbcType=VARCHAR}, #{sysUserIcon,jdbcType=VARCHAR}, 
       #{sysUserRealName,jdbcType=VARCHAR}, #{sysUserEmail,jdbcType=VARCHAR}, #{sysUserMobile,jdbcType=VARCHAR}, 
       #{sysUserWeiboId,jdbcType=VARCHAR}, #{sysUserQqId,jdbcType=VARCHAR})
+
+    <!-- 执行 select LAST_INSERT_ID()数据库函数,返回自增的主键
+     keyProperty:将返回的主键放入传入参数的Id中保存.
+     order:当前函数相对于insert语句的执行顺序,在insert前执行是before,在insert后执行是AFTER
+     resultType:id的类型,也就是keyproperties中属性的类型
+     -->
+
+
   </insert>
   <insert id="insertSelective" parameterType="com.ming.finance.pojo.FinanceUser" >
     insert into finance_user
@@ -286,5 +307,67 @@
     <if test="_parameter != null" >
       <include refid="Update_By_Example_Where_Clause" />
     </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.ming.finance.pojo.FinanceUser" >
+    update finance_user
+    <set >
+      <if test="sysUserLoginName != null" >
+        sys_user_login_name = #{sysUserLoginName,jdbcType=VARCHAR},
+      </if>
+      <if test="sysUserLoginPassword != null" >
+        sys_user_login_password = #{sysUserLoginPassword,jdbcType=VARCHAR},
+      </if>
+      <if test="sysUserStatus != null" >
+        sys_user_status = #{sysUserStatus,jdbcType=VARCHAR},
+      </if>
+      <if test="sysUserIsDelete != null" >
+        sys_user_is_delete = #{sysUserIsDelete,jdbcType=VARCHAR},
+      </if>
+      <if test="sysUserRegisterDatetime != null" >
+        sys_user_register_datetime = #{sysUserRegisterDatetime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="sysUserSex != null" >
+        sys_user_sex = #{sysUserSex,jdbcType=VARCHAR},
+      </if>
+      <if test="sysUserPayPasswrod != null" >
+        sys_user_pay_passwrod = #{sysUserPayPasswrod,jdbcType=VARCHAR},
+      </if>
+      <if test="sysUserIcon != null" >
+        sys_user_icon = #{sysUserIcon,jdbcType=VARCHAR},
+      </if>
+      <if test="sysUserRealName != null" >
+        sys_user_real_name = #{sysUserRealName,jdbcType=VARCHAR},
+      </if>
+      <if test="sysUserEmail != null" >
+        sys_user_email = #{sysUserEmail,jdbcType=VARCHAR},
+      </if>
+      <if test="sysUserMobile != null" >
+        sys_user_mobile = #{sysUserMobile,jdbcType=VARCHAR},
+      </if>
+      <if test="sysUserWeiboId != null" >
+        sys_user_weibo_id = #{sysUserWeiboId,jdbcType=VARCHAR},
+      </if>
+      <if test="sysUserQqId != null" >
+        sys_user_qq_id = #{sysUserQqId,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where sys_user_id = #{sysUserId,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.ming.finance.pojo.FinanceUser" >
+    update finance_user
+    set sys_user_login_name = #{sysUserLoginName,jdbcType=VARCHAR},
+      sys_user_login_password = #{sysUserLoginPassword,jdbcType=VARCHAR},
+      sys_user_status = #{sysUserStatus,jdbcType=VARCHAR},
+      sys_user_is_delete = #{sysUserIsDelete,jdbcType=VARCHAR},
+      sys_user_register_datetime = #{sysUserRegisterDatetime,jdbcType=TIMESTAMP},
+      sys_user_sex = #{sysUserSex,jdbcType=VARCHAR},
+      sys_user_pay_passwrod = #{sysUserPayPasswrod,jdbcType=VARCHAR},
+      sys_user_icon = #{sysUserIcon,jdbcType=VARCHAR},
+      sys_user_real_name = #{sysUserRealName,jdbcType=VARCHAR},
+      sys_user_email = #{sysUserEmail,jdbcType=VARCHAR},
+      sys_user_mobile = #{sysUserMobile,jdbcType=VARCHAR},
+      sys_user_weibo_id = #{sysUserWeiboId,jdbcType=VARCHAR},
+      sys_user_qq_id = #{sysUserQqId,jdbcType=VARCHAR}
+    where sys_user_id = #{sysUserId,jdbcType=BIGINT}
   </update>
 </mapper>
