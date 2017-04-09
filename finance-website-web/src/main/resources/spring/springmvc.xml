@@ -42,6 +42,9 @@
 	<!-- 服务消费方 名称 -->
 	<dubbo:application name="finance-website-web" />
 	<!--注册中心 注册地址 连接zookeeper -->
-	<dubbo:registry address="192.168.31.35:2181" protocol="zookeeper"/>
+	<!--<dubbo:registry address="192.168.31.35:2181" protocol="zookeeper"/>-->
+
+	<dubbo:registry address="172.16.139.133:2181" protocol="zookeeper"/>
+
 	<dubbo:reference interface="com.ming.finance.service.LoginService" id="loginService" />
 </beans>      
